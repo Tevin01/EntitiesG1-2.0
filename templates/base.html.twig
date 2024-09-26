@@ -1,0 +1,25 @@
+{# template/base.html.twig #}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <title>{% block title %}EntitiesG1{% endblock %}</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="{{ asset('img/favicon.ico') }}" />
+        {% block stylesheets %}
+        {% endblock %}
+
+        {% block javascripts %}
+            {% block importmap %}{{ importmap('app') }}{% endblock %}
+        {% endblock %}
+    </head>
+    <body>
+    {#  notre contenu (nos templates #}
+    {% block content %}
+    {% endblock %}
+    {# contenu automatique des cruds, form etc... #}
+    {% block body %}
+    {% endblock %}
+    </body>
+</html>
