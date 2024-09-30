@@ -5,6 +5,7 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use App\Repository\SectionRepository;
 
 class MainController extends AbstractController
 {
@@ -18,15 +19,12 @@ class MainController extends AbstractController
                 'homepage_text'=> "Nous somme le ".date('d/m/Y \à H:i'
                 ),
                 # on met dans une variable pour twig toutes les sections récupérés
+                'sections' => $sections->findAll(),
             ]
         );
     }
-    #[Route('/about', name: 'about_me')]
-    public function aboutMe(): Response
-    {
-        return $this->render('main/about.html.twig', [
-            'title' => 'About me',
-            'homepage_text'=> "Et je parle encore de moi !",
-        ]);
-    }
+
+    // création de l'url pour le détail d'une section
+ 
+    
 }
